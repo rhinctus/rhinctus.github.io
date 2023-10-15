@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>show and tell TEST</title>
+		<meta charset="UTF-8">
+		<link type="text/css" href="./style.css" rel="stylesheet" media="all"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<style>
+		  body {
+      	margin: 1px 0 0 1px;
+      	background-color: #010101;
+      }
+      img {
+      	image-rendering: pixelated;
+      }
+      p {
+      	color: #ffffff;
+      	font-size: xx-small;
+      	font-family: Verdana;
+      	margin: 0;
+      }
+      a {
+      	text-decoration: none;
+      	color: white;
+      }
+      .spec {
+      	font-size: 10pt;
+      	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+      	letter-spacing: -1.1px;
+      }
+      .title, .intro {
+      	margin-left: 4px;
+      }
+      .introblock {
+      	margin-bottom: 5px;
+      }
+      .bigblock {
+      	margin: 0;
+        width: 385px;
+      }
+      .art {
+      	width: 95px;
+      	height: 160px;
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      }
+      .art:hover {
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 1.0);
+      	transition: ease 0.05s;
+      }
+      .nav {
+      	width: 95px;
+      	height: 95px;
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      }
+      .nava { margin-top: 8px; }
+      .nsfw {
+      	width: 95px;
+      	height: 95px;
+      	box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      	background-color: #ffffff;
+      }
+      .nsfw:hover {
+      	animation: pulse 1s linear infinite;
+      	transition: ease 0.05s;
+      	box-shadow: 0 0 0 1px rgba(255, 0, 0, 1.0);
+      }
+      .text {
+      	margin: 0 0 1px 0;
+      }
+      .text p {
+      	margin: 0 4px 0 4px;
+      }
+      .icon {
+      	margin: 0 1px -1px 1px;
+      }
+      .back {
+      	font-style: italic;
+      	margin-right: 4px;
+      	text-align: right;
+      	float: right;
+      	background: #010101;
+      	box-shadow: 0px 0px white;
+      	transition: ease 0.25s;
+      }
+      .back:hover {
+      	box-shadow: 0px 1px white;
+      	transition: ease 0.05s;
+      }
+      .ar {
+      	margin: 0 0 0 1px;
+      }
+      .fart {
+      	width: 100%;
+      	height: auto;
+      	max-width: max-content;
+      
+      }
+      .blurb {
+      	margin: 5px 4px;
+      }
+      img { width: 95px; height: 160px; object-fit: cover; user-select: none; pointer-events: none; 
+      }
+      .kebab { display: grid; justify-content: center; align-content: center; height: 98vh }
+		</style>
+	</head>
+	<body>
+		<div class="introblock">
+			<p class="title"><span class="spec"></span> <i><a href="/"><span class="back"><!--<img class="ar" src="ar.png"/>--> </span></a></i></p>
+			<p class="intro"></p>
+		</div>
+  <div class="kebab">		
+		<div class="bigblock">
+				<div class="art " id="button">
+					<a ><img src="./v.png"/></a>
+				</div>
+				<div class="art">
+					<a ><img src="./ww.png"/></a>
+				</div>
+				<div class="art">
+					<a ><img src="./fitd.png"/></a>
+				</div>
+				<div class="art" >
+					<a ><img src="./tfot.png"/></a>
+				</div>
+				<div class="art">
+					<a ><img src="./t.png"/></a>
+				</div>
+				<div class="art" >
+					<a ><img src="./a/tma_th.png"/></a>
+				</div>
+				<div class="art">
+					<a ><img src="./a/koiboi_th.png"/></a>
+				</div>
+				<div class="art" >
+					<a ><img src="./a/tma2_th.png"/></a>
+				</div>
+			</div>
+			</div>
+            <script src="howler.core.min.js"></script>
+            <script>
+			    var sound = new Howl({
+                    src: ['b1.mp3'],
+                    preload: true
+                });
+				var osound = new Howl({
+                    src: ['b2.mp3'],
+                    preload: true
+                });
+				var bound = new Howl({
+                    src: ['b01.mp3'],
+                    preload: true
+                });
+				var obound = new Howl({
+                    src: ['b02.mp3'],
+                    preload: true
+                });
+				document.querySelectorAll('.art').forEach(item => {
+                item.addEventListener("mouseenter", mouseOver);
+				item.addEventListener("mouseleave", mouseLeave);
+				item.addEventListener("mousedown", mouseDown);
+				item.addEventListener("mouseup", mouseUp);
+				})
+                function mouseOver() {
+                    sound.play();
+                }
+				function mouseLeave() {
+					osound.play();
+				}
+				function mouseDown() {
+                    bound.play();
+                }
+				function mouseUp() {
+					obound.play();
+				}
+        </script>
+		<script src="anime.min.js"></script>
+		<script>
+		anime({
+			targets: '.art',
+			translateX: 250,
+			rotate: '1turn',
+			backgroundColor: '#000',
+			duration: 800
+		  });
+		</script>
+	</body>
+</html>

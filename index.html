@@ -1,8 +1,490 @@
 <!DOCTYPE html>
-<head>
-    <title>Hello</title>
-</head>
-<body>
-  <p>Hello</p>
-</body>
+<html>
+	<head>
+		<title>show and tell TEST</title>
+		<meta charset="UTF-8">
+		<link type="text/css" href="./style.css" rel="stylesheet" media="all"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link href="video-js.min.css" rel="stylesheet" />
+    	<link href="peep.css" rel="stylesheet"/>
+		<link href="fantasy.css" rel="stylesheet"/>
+		<style>
+		  body {
+      	margin: 1px 0 0 1px;
+      	background-color: #010101;
+      }
+      img {
+      	image-rendering: pixelated;
+      }
+      p {
+      	color: #ffffff;
+      	font-size: xx-small;
+      	font-family: Verdana;
+      	margin: 0;
+      }
+      a {
+      	text-decoration: none;
+      	color: white;
+      }
+      .spec {
+      	font-size: 10pt;
+      	font-family: "Helvetica Neue", "Helvetica", sans-serif;
+      	letter-spacing: -1.1px;
+      }
+      .title, .intro {
+      	margin-left: 4px;
+      }
+      .introblock {
+      	margin-bottom: 5px;
+      }
+      .bigblock {
+      	margin: 0;
+        width: 385px;
+      }
+      .art {
+      	width: 95px;
+      	height: 160px;
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      }
+      .art:hover {
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 1.0);
+      	transition: ease 0.05s;
+      }
+      .nav {
+      	width: 95px;
+      	height: 95px;
+      	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      }
+      .nava { margin-top: 8px; }
+      .nsfw {
+      	width: 95px;
+      	height: 95px;
+      	box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.0);
+      	transition: ease 0.25s;
+      	display: inline-block;
+      	margin: 0 1px 1px 0;
+      	float: left;
+      	background-color: #ffffff;
+      }
+      .nsfw:hover {
+      	animation: pulse 1s linear infinite;
+      	transition: ease 0.05s;
+      	box-shadow: 0 0 0 1px rgba(255, 0, 0, 1.0);
+      }
+      .text {
+      	margin: 0 0 1px 0;
+      }
+      .text p {
+      	margin: 0 4px 0 4px;
+      }
+      .icon {
+      	margin: 0 1px -1px 1px;
+      }
+      .back {
+      	font-style: italic;
+      	margin-right: 4px;
+      	text-align: right;
+      	float: right;
+      	background: #010101;
+      	box-shadow: 0px 0px white;
+      	transition: ease 0.25s;
+      }
+      .back:hover {
+      	box-shadow: 0px 1px white;
+      	transition: ease 0.05s;
+      }
+	  .goback {
+		margin-top: 5px;
+		cursor: pointer;
+	  }
+      .ar {
+      	margin: 0 0 0 1px;
+      }
+      .fart {
+      	width: 100%;
+      	height: auto;
+      	max-width: max-content;
+      
+      }
+      .blurb {
+      	margin: 5px 4px;
+      }
+      img { width: 95px; height: 160px; object-fit: cover; user-select: none; pointer-events: none; 
+      }
+      .kebab { display: grid; justify-content: center; align-content: center; height: 98vh }
+		</style>
+	</head>
+	<body>
+		<div class="introblock">
+			<p class="title"><span class="spec"></span> <i><a href="/"><span class="back"><!--<img class="ar" src="ar.png"/>--> </span></a></i></p>
+			<p class="intro"></p>
+		</div>
+  		<div class="kebab">		
+			<div class="bigblock" id="bigblocc">
+				<p id="enter">click to enter</p>
+			</div>
+			<div class="bigblock" id="mainblocc" style="display:none">
+				<div class="art " id="vigbutt">
+					<a ><img src="./v.png"/></a>
+				</div>
+				<div class="art" id="waterbutt">
+					<a ><img src="./ww.png"/></a>
+				</div>
+				<div class="art" id="darkbutt">
+					<a ><img src="./fitd.png"/></a>
+				</div>
+				<div class="art" id="fourbutt">
+					<a ><img src="./tfot.png"/></a>
+				</div>
+				<div class="art" id="transitbutt">
+					<a ><img src="./t.png"/></a>
+				</div>
+				<div class="art" id="brokenbutt">
+					<a ><img src="./bd.png"/></a>
+				</div>
+				<div class="art" id="toolbutt">
+					<a ><img src="./tsfc.png"/></a>
+				</div>
+				<div class="art" id="streetbutt">
+					<a ><img src="./sl.png"/></a>
+				</div>
+			</div>
+			<!--vignettes-->
+			<div class="bigblock" style="display:none" id="vigblock">
+				<video
+					id="vig"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="vignettes.mp4" type="video/mp4" />
+		  		</video>
+				<p class="goback" id="goback">&lt;~~ go back</p>
+			</div>
+			<!--waterworld-->
+			<div class="bigblock" style="display:none" id="waterblock">
+				<video
+					id="water"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="waterworld.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackw">&lt;~~ go back</p>
+			</div>
+			<!--friends in the dark-->
+			<div class="bigblock" style="display:none" id="darkblock">
+				<video
+					id="dark"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="friendsinthedark.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackd">&lt;~~ go back</p>
+			</div>
+			<!--the four of them-->
+			<div class="bigblock" style="display:none" id="fourblock">
+				<video
+					id="four"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="thefourofthem.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackf">&lt;~~ go back</p>
+			</div>
+			<!--transit-->
+			<div class="bigblock" style="display:none" id="transitblock">
+				<video
+					id="transit"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="transit.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackt">&lt;~~ go back</p>
+			</div>
+			<!--broken down-->
+			<div class="bigblock" style="display:none" id="brokenblock">
+				<video
+					id="broken"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="brokendown.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackb">&lt;~~ go back</p>
+			</div>
+			<!--tool system foundation city-->
+			<div class="bigblock" style="display:none" id="toolblock">
+				<video
+					id="tool"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="toolsystemfoundationcity.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobacko">&lt;~~ go back</p>
+			</div>
+			<!--streetlines-->
+			<div class="bigblock" style="display:none" id="streetblock">
+				<video
+					id="street"
+					class="video-js vjs-theme-fantasy"
+					controls
+					preload="auto"
+					width="415"
+					height="auto"
+					poster="MY_VIDEO_POSTER.jpg"
+					data-setup="{}"
+		  		>
+					<source src="gate.mp4" type="video/mp4" />
+		  		</video>
+				  <p class="goback" id="gobackr">&lt;~~ go back</p>
+			</div>
+		</div>
+		<script src="howler.core.min.js"></script>
+		<script src="video.min.js"></script>
+		<script src="anime.min.js"></script>
+		<script>
+			var esound = new Howl({
+				src: ['enter.mp3'],
+				preload: true
+			});
+			document.getElementById('enter').addEventListener("mouseup", mouseClc);
+			function mouseClc() {
+				esound.play();
+				// fade out
+				anime({
+					targets: '.bigblock',
+					opacity: 0,
+					duration: 1600,
+					complete: function(anim) {
+						unLoader();
+					}
+				});
+			}
 
+			document.getElementById('vigbutt').addEventListener("mouseup", clunk);
+			function clunk() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('vigblock').style.display = "block";
+				document.getElementById('vig').player.play();
+			}
+
+			document.getElementById('goback').addEventListener("mouseup", chunt);
+			function chunt() {
+				document.getElementById('vigblock').style.display = "none";
+				document.getElementById('vig').player.pause();
+				document.getElementById('vig').player.currentTime(0);
+				document.getElementById('vig').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('waterbutt').addEventListener("mouseup", clunkw);
+			function clunkw() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('waterblock').style.display = "block";
+				document.getElementById('water').player.play();
+			}
+
+			document.getElementById('gobackw').addEventListener("mouseup", chuntw);
+			function chuntw() {
+				document.getElementById('waterblock').style.display = "none";
+				document.getElementById('water').player.pause();
+				document.getElementById('water').player.currentTime(0);
+				document.getElementById('water').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('darkbutt').addEventListener("mouseup", clunkd);
+			function clunkd() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('darkblock').style.display = "block";
+				document.getElementById('dark').player.play();
+			}
+
+			document.getElementById('gobackd').addEventListener("mouseup", chuntd);
+			function chuntd() {
+				document.getElementById('darkblock').style.display = "none";
+				document.getElementById('dark').player.pause();
+				document.getElementById('dark').player.currentTime(0);
+				document.getElementById('dark').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('fourbutt').addEventListener("mouseup", clunkf);
+			function clunkf() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('fourblock').style.display = "block";
+				document.getElementById('four').player.play();
+			}
+
+			document.getElementById('gobackf').addEventListener("mouseup", chuntf);
+			function chuntf() {
+				document.getElementById('fourblock').style.display = "none";
+				document.getElementById('four').player.pause();
+				document.getElementById('four').player.currentTime(0);
+				document.getElementById('four').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('transitbutt').addEventListener("mouseup", clunkt);
+			function clunkt() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('transitblock').style.display = "block";
+				document.getElementById('transit').player.play();
+			}
+
+			document.getElementById('gobackt').addEventListener("mouseup", chuntt);
+			function chuntt() {
+				document.getElementById('transitblock').style.display = "none";
+				document.getElementById('transit').player.pause();
+				document.getElementById('transit').player.currentTime(0);
+				document.getElementById('transit').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('brokenbutt').addEventListener("mouseup", clunkb);
+			function clunkb() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('brokenblock').style.display = "block";
+				document.getElementById('broken').player.play();
+			}
+
+			document.getElementById('gobackb').addEventListener("mouseup", chuntb);
+			function chuntb() {
+				document.getElementById('brokenblock').style.display = "none";
+				document.getElementById('broken').player.pause();
+				document.getElementById('broken').player.currentTime(0);
+				document.getElementById('broken').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('toolbutt').addEventListener("mouseup", clunko);
+			function clunko() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('toolblock').style.display = "block";
+				document.getElementById('tool').player.play();
+			}
+
+			document.getElementById('gobacko').addEventListener("mouseup", chunto);
+			function chunto() {
+				document.getElementById('toolblock').style.display = "none";
+				document.getElementById('tool').player.pause();
+				document.getElementById('tool').player.currentTime(0);
+				document.getElementById('tool').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+
+			document.getElementById('streetbutt').addEventListener("mouseup", clunkr);
+			function clunkr() {
+				document.getElementById('mainblocc').style.display = "none";
+				document.getElementById('streetblock').style.display = "block";
+				document.getElementById('street').player.play();
+			}
+
+			document.getElementById('gobackr').addEventListener("mouseup", chuntr);
+			function chuntr() {
+				document.getElementById('streetblock').style.display = "none";
+				document.getElementById('street').player.pause();
+				document.getElementById('street').player.currentTime(0);
+				document.getElementById('street').player.hasStarted(false);
+				document.getElementById('mainblocc').style.display = "block";
+			}
+			
+
+			function unLoader() {
+				document.getElementById('bigblocc').style.display = "none";
+				document.getElementById('mainblocc').style.display = "block";
+				anime({
+					targets: '.bigblock',
+					opacity: 1,
+					duration: 1600,
+				});
+				var sound = new Howl({
+                    src: ['b1.mp3'],
+                    preload: true
+                });
+				var osound = new Howl({
+                    src: ['b2.mp3'],
+                    preload: true
+                });
+				var bound = new Howl({
+                    src: ['b01.mp3'],
+                    preload: true
+                });
+				var obound = new Howl({
+                    src: ['b02.mp3'],
+                    preload: true
+                });
+				document.querySelectorAll('.art').forEach(item => {
+                item.addEventListener("mouseenter", mouseOver);
+				item.addEventListener("mouseleave", mouseLeave);
+				item.addEventListener("mousedown", mouseDown);
+				item.addEventListener("mouseup", mouseUp);
+				})
+                function mouseOver() {
+                    sound.play();
+                }
+				function mouseLeave() {
+					osound.play();
+				}
+				function mouseDown() {
+                    bound.play();
+                }
+				function mouseUp() {
+					obound.play();
+				}
+			}
+				// unload
+				
+				// load, invisible
+				// fade in
+			
+        </script>
+	</body>
+</html>
